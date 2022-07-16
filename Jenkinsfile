@@ -1,10 +1,6 @@
 pipeline {
 
-  agent {
-    docker {
-      image 'python:3.5.1'
-      }
-    }
+  agent { docker { image 'python:3.7.2' } }
 
   stages {
 
@@ -12,7 +8,7 @@ pipeline {
       steps {
         script {
           sh 'python --version'
-          sh 'virtualenv venv --distribute . venv/bin/activate pip install -r requirements.txt'
+          sh 'pip install -r requirements.txt'
         }
       }
     }
