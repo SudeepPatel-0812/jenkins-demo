@@ -6,7 +6,7 @@ pipeline {
 
     stage("install dependencies") {
       steps {
-        script {
+        withPythonEnv(python: 'python-3.8.0') {
           sh "pip install -r requirements.txt --user"
           }
         }
