@@ -5,7 +5,7 @@ pipeline {
   stages {
 
     stage("install dependencies ") {
-      withPythonEnv {
+      withPythonEnv('python3') {
         sh 'pip install pytest'
       }
     }
