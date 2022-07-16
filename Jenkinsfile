@@ -1,13 +1,14 @@
 pipeline {
 
-  agent any
+  agent { docker { image 'python:3.5.1' } }
 
   stages {
 
     stage("install dependencies ") {
       steps {
         script {
-          sh 'pip install pytest'
+          sh 'python --version'
+          sh 'virtualenv venv --distribute . venv/bin/activate pip install -r requirements.txt'
         }
       }
     }
