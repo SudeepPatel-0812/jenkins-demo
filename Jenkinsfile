@@ -5,14 +5,18 @@ pipeline {
   stages {
 
     stage("install dependencies ") {
-      withPythonEnv('python3') {
-        sh 'pip install pytest'
+      steps {
+        script {
+          sh 'pip install -r requirements.txt'
+        }
       }
     }
 
     stage("test") {
       steps {
-        sh 'pytest tests/'
+        script {
+          sh 'pytest tests/'
+        }
       }
     }
 
@@ -20,6 +24,7 @@ pipeline {
       steps {
         echo "done..."
       }
-      }
+    }
+
   }
 }
