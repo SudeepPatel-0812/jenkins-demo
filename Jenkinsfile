@@ -5,19 +5,19 @@ pipeline {
   stages {
 
     stage("install dependencies ") {
-      step {
+      steps {
         sh 'pip install pytest'
       }
     }
 
     stage("test") {
-      step {
+      steps {
         sh 'pytest tests/'
       }
     }
 
     stage("finalise") {
-      step {
+      steps {
         echo "done..."
       }
       }
