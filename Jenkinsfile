@@ -2,7 +2,8 @@ pipeline {
 
   agent {
     docker {
-      image 'python:3.7.2'
+      label "docker && linux"
+      image "python:3.7.2"
       }
     }
 
@@ -10,12 +11,11 @@ pipeline {
 
     stage("install dependencies ") {
       steps {
-        script {
-          sh 'python --version'
-          sh 'pip install -r requirements.txt'
+        withEnv(["HOME=${env.WORKSPACE}"]) {
+          sh "pip install -r requirements.txt --user"
+          }
         }
       }
-    }
 
     stage("test") {
       steps {
