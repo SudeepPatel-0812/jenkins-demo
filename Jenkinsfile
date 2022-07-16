@@ -6,8 +6,8 @@ pipeline {
 
     stage("install dependencies") {
       steps {
-        withPythonEnv(python: 'python-3.8.0') {
-          bat "pip install -r requirements.txt --user"
+        withPythonEnv('python3') {
+            sh 'python --version'
           }
         }
       }
