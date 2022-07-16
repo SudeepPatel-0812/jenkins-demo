@@ -14,5 +14,6 @@ pipeline {
 
     stage("finalise") {
         echo "done..."
-    }
+      }
+  }
 }
